@@ -1,0 +1,12 @@
+Implement a TODO list using the following technologies:
+
+- rspec
+- SimpleDB
+- EC2
+- SQS
+
+Put together a tutorial and host it on google-code.
+
+Installing RSpec 1.1.3
+http://rspec.info/documentation/rails/install.html
+
