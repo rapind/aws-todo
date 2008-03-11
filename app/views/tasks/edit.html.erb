@@ -3,21 +3,7 @@
 <%= error_messages_for :task %>
 
 <% form_for(@task) do |f| %>
-  <p>
-    <b>List</b><br />
-    <%= f.text_field :list_id %>
-  </p>
-
-  <p>
-    <b>Description</b><br />
-    <%= f.text_field :description %>
-  </p>
-
-  <p>
-    <b>Completed at</b><br />
-    <%= f.datetime_select :completed_at %>
-  </p>
-
+	<%= render :partial => 'form', :locals => { :f => f } %>
   <p>
     <%= f.submit "Update" %>
   </p>

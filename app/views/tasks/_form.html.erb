@@ -1,0 +1,12 @@
+<p>
+	<b>List</b><br />
+	<%= f.collection_select 'list_id' , List.find(:all), 'id', 'title' %>
+</p>
+<p>
+	<b>Description</b><br />
+	<%= f.text_field :description %>
+</p>
+<p>
+	<b>Completed at</b><br />
+	<%= f.datetime_select :completed_at %>
+</p>
