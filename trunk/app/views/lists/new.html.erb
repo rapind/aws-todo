@@ -3,18 +3,7 @@
 <%= error_messages_for :list %>
 
 <% form_for(:list, :url => lists_path) do |f| %>
-  <p>
-    <b>User</b><br />
-    <%= f.collection_select 'user_id' , User.find(:all), 'id', 'email' %>
-  </p>
-  <p>
-    <b>Title</b><br />
-    <%= f.text_field :title %>
-  </p>
-  <p>
-    <b>Description</b><br />
-    <%= f.text_field :description %>
-  </p>
+  <%= render :partial => 'form', :locals => { :f => f } %>
   <p>
     <%= f.submit "Create" %>
   </p>
