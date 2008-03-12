@@ -81,6 +81,7 @@ class TasksController < ApplicationController
 
     respond_to do |format|
       format.html { redirect_to(tasks_url) }
+      format.js # run the destroy.rjs template
       format.xml  { head :ok }
     end
   end

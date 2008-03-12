@@ -1,5 +1,8 @@
 require 'digest/sha1'
 class User < ActiveResource::Base
+	include ActiveResourceSchema
+	
+	
 	# AwsSdbProxy settings
 	self.site = "http://localhost:8888" # AwsSdbProxy host + port
 	self.prefix = "/aws_todo/" # SimpleDB domain
