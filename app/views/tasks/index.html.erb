@@ -1,20 +1,11 @@
 <h1>Listing tasks</h1>
 
 <table>
-  <tr>
-    <th>Description</th>
-    <th>Completed at</th>
-  </tr>
-
-<% for task in @tasks %>
-  <tr id="<%= dom_id(task) %>">
-    <td><%=h task.description %></td>
-    <td><%#=h task.completed_at %></td>
-    <td><%= link_to 'Show', task %></td>
-    <td><%= link_to 'Edit', edit_task_path(task) %></td>
-    <td><%= link_to_remote 'Destroy', :url => task_path(task), :confirm => 'Are you sure?', :method => :delete %></td>
-  </tr>
-<% end %>
+	<tr>
+		<th>Description</th>
+		<th>Completed at</th>
+	</tr>
+	<%= render :partial => @tasks %>
 </table>
 
 <br />

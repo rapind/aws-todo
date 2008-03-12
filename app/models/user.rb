@@ -2,13 +2,13 @@ require 'digest/sha1'
 class User < ActiveResource::Base
 	include ActiveResourceSchema
 	
+	@@schema = %w{ id email password salt crypted_password activated activation_code activated_at remember_token remember_token_expires_at full_name }
 	
 	# AwsSdbProxy settings
 	self.site = "http://localhost:8888" # AwsSdbProxy host + port
 	self.prefix = "/aws_todo/" # SimpleDB domain
 	
 	attr_accessor :attributes
-	#attr_accessor :id, ...
 	
 	# before a new user is created
 	def create
@@ -19,7 +19,7 @@ class User < ActiveResource::Base
 	end
 	
 	def lists
-		List.find( :all, :params => { :user_id => self.id } )
+		List.find( :all, :params => { 'user-id' => self.id } )
 	end
   
 	# Activates the user in the database.
@@ -42,7 +42,7 @@ class User < ActiveResource::Base
 
 	# Authenticates a user by their email and unencrypted password.  Returns the user or nil.
 	def self.authenticate(email, password)
-		u = find( :first, :params => { :email => email } ) # need to get the salt
+		u = find( :first, :params => { 'email' => email } ) # need to get the salt
 		u && u.authenticated?(password) ? u : nil
 	end
 
