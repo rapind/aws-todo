@@ -6,10 +6,8 @@
 
 <h2>Totals: <span id="task_totals"><%= @task_totals %></span></h2>
 
-<p>
-	<div id="tasks">
-		<%= render :partial => @tasks %>
-	</div>
-</p>
+<table>
+	<%= render :partial => @tasks %>
+</table>
 
 <%= render :partial => 'form' %>
