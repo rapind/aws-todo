@@ -1,6 +1,6 @@
 <p>
-  <b>List:</b>
-  <%=h @task.list.title %>
+  <b>Project:</b>
+  <%=h @task.project.name %>
 </p>
 
 <p>
@@ -11,6 +11,16 @@
 <p>
   <b>Completed at:</b>
   <%=h @task.completed_at %>
+</p>
+
+<p>
+  <b>Created at:</b>
+  <%=h @task.created_at %>
+</p>
+
+<p>
+  <b>Updated at:</b>
+  <%=h @task.updated_at %>
 </p>
 
 

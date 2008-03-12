@@ -1,6 +1,7 @@
 require File.dirname(__FILE__) + '/../test_helper'
 
-class ListTest < Test::Unit::TestCase
+class ProjectTest < ActiveSupport::TestCase
+  # Replace this with your real tests.
   def test_truth
     assert true
   end
