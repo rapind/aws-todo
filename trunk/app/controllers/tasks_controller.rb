@@ -24,9 +24,7 @@ class TasksController < ApplicationController
   # GET /tasks/new
   # GET /tasks/new.xml
   def new
-    # We need to initiate the fields for active resource models
-  	# TODO - has to be 500 better ways to do this
-    @task = Task.new(:list_id => nil, :description => nil, :completed_at => nil)
+    @task = Task.new
 
     respond_to do |format|
       format.html # new.html.erb
