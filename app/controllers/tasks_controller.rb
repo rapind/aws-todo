@@ -83,7 +83,7 @@ class TasksController < ApplicationController
   def destroy
     @task = Task.find(params[:id])
     @task.destroy
-    calculate_totals
+    #calculate_totals
 
     respond_to do |format|
       format.html { redirect_to(tasks_url) }
