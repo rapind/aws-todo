@@ -1,8 +1,24 @@
 require 'digest/sha1'
 class User < ActiveResource::Base
+	# Specify the default schema attributes for the class. This ensures that these attributes are available
+	# in view forms etc.
 	include ActiveResourceSchema
-	
-	@@schema = %w{ id email password salt crypted_password activated activation_code activated_at remember_token remember_token_expires_at full_name }
+	@@defaults = {
+		:id => nil,
+		:email => nil,
+		:full_name => nil,
+		:password => nil,
+		:salt => nil,
+		:crypted_password => nil,
+		:activated => false,
+		:activation_code => nil,
+		:activated_at => nil,
+		:remember_token => false,
+		:remember_token_expires_at => nil
+	}
+
+	# Sample user	
+	# u = User.create(:email => 'rapind@gmail.com', :password => 'test', :full_name => 'Dave Rapin')
 	
 	# AwsSdbProxy settings
 	self.site = "http://localhost:8888" # AwsSdbProxy host + port
@@ -18,8 +34,13 @@ class User < ActiveResource::Base
 		super
 	end
 	
-	def lists
-		List.find( :all, :params => { 'user-id' => self.id } )
+	def tasks
+		Task.find( :all, :params => { 'user-id' => self.id } )
+	end
+	
+	def task_totals
+		tasks = tasks
+		tasks.inject(0){ |sum, item| sum + item.value }
 	end
   
 	# Activates the user in the database.
@@ -89,8 +110,8 @@ class User < ActiveResource::Base
   
 	# before filter 
 	def encrypt_password
-		return if password.blank?
-		self.salt = Digest::SHA1.hexdigest("--#{Time.now.to_s}--#{email}--") #if new_record?
+		#return unless self.password && self.email
+		self.salt = Digest::SHA1.hexdigest("--#{Time.now.to_s}--#{email}--")
 		self.crypted_password = encrypt(password)
 		self.password = nil
 	end
