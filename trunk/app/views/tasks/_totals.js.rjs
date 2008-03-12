@@ -1,0 +1,2 @@
+page.replace_html 'task_totals', @task_totals
+page.assign 'task_totals', @task_totals

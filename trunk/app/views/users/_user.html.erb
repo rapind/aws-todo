@@ -1,0 +1,7 @@
+<tr id="<%= dom_id(user) %>">
+	<td><%=h user.email %></td>
+	<td><%=h user.full_name %></td>
+	<td><%= link_to 'Show', user %></td>
+	<td><%= link_to 'Edit', edit_user_path(user) %></td>
+	<td><%= link_to_remote 'Destroy', :url => user_path(user), :confirm => 'Are you sure?', :method => :delete %></td>
+</tr>

@@ -1,29 +1,26 @@
-# This module can be included in ActiveResource model classes to initialize attributes to nil
-# so they work with view forms etc.
+# This module can be included in ActiveResource model classes to initialize attributes to default values
+# like nil etc. so they work with view forms.
 #
-# You just need to define a @@schema string array for the attribute names in the including class.
+# You just need to define a @@defaults hash for the attributes in the including class.
 #
 # For example if you have a project class that always has 'first_name' and 'last_name' attributes 
-# you can add it to the schema so that calls to Project.new.first_name and Project.new.last_name 
+# you can add it to the defaults so that calls to Project.new.first_name and Project.new.last_name 
 # return nil instead of method not found exceptions.
 #
 # class Project < ActiveResource::Base
 #   include ActiveResourceInit
-#   @@schema = %w{ first_name last_name }
+#   @@defaults = {:first_name => nil, :last_name => nil}
 # end
 #
 module ActiveResourceSchema
 
-	@@schema = []
+	@@defaults = {}
 	
 	def initialize(attributes = {})
     	
-    	# Loop through the schema and add any missing values into the attributes hash
-    	for field in @@schema
-    		attributes[field] = nil unless attributes.key?(field)
-		end
-    		
-    	super(attributes)
+    	@@defaults.merge!(attributes) unless attributes.empty?
+    	super @@defaults
+    	
     end
     
 end

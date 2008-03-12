@@ -3,6 +3,7 @@ class TasksController < ApplicationController
   # GET /tasks.xml
   def index
     @tasks = Task.find(:all)
+    calculate_totals
 
     respond_to do |format|
       format.html # index.html.erb
@@ -44,8 +45,10 @@ class TasksController < ApplicationController
 
     respond_to do |format|
       if @task.save
+      	calculate_totals
         flash[:notice] = 'Task was successfully created.'
         format.html { redirect_to(@task) }
+        format.js # run the update.js.rjs template
         format.xml  { render :xml => @task, :status => :created, :location => @task }
       else
         format.html { render :action => "new" }
@@ -63,8 +66,10 @@ class TasksController < ApplicationController
 
     respond_to do |format|
       if @task.save
+      	calculate_totals
         flash[:notice] = 'Task was successfully updated.'
         format.html { redirect_to(@task) }
+        format.js # run the update.js.rjs template
         format.xml  { head :ok }
       else
         format.html { render :action => "edit" }
@@ -78,11 +83,19 @@ class TasksController < ApplicationController
   def destroy
     @task = Task.find(params[:id])
     @task.destroy
+    calculate_totals
 
     respond_to do |format|
       format.html { redirect_to(tasks_url) }
-      format.js # run the destroy.rjs template
+      format.js # run the destroy.js.rjs template
       format.xml  { head :ok }
     end
   end
+  
+  protected #----------
+  
+  def calculate_totals
+  	@task_totals = Task.sum :value
+  end
+  
 end

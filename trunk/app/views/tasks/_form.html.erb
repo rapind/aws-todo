@@ -1,8 +1,8 @@
-<p>
-	<b>Project</b><br />
-	<%= f.collection_select 'project_id' , Project.find(:all), 'id', 'name' %>
-</p>
-<p>
-	<b>Description</b><br />
-	<%= f.text_field :description %>
-</p>
+<% form_remote_tag :url => {:action => 'create'}, :html => {:id => 'task_form'} do -%>
+	<div>Add Task:</div>
+	<label for='task_description'>Description</label>
+	<%= text_field 'task', 'description' %>
+	<label for='task_value'>Value</label>
+	<%= text_field 'task', 'value' %>	
+	<%= submit_tag 'Add New Task' %>	
+<% end -%>
