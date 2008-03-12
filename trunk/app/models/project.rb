@@ -12,15 +12,15 @@ class Project < ActiveResource::Base
     attr_accessor :attributes
     
     def user
-    	User.find( :first, :params => { :id => self.user_id } )
+    	User.find( :first, :params => { 'id' => self.user_id } )
     end
     
     def tasks
-    	Task.find( :all, :params => { :project_id => self.id } )
+    	Task.find( :all, :params => { 'project-id' => self.id } )
     end
     
     def incomplete_tasks
-    	Task.find( :all, :params => { :project_id => self.id, :completed_at => nil } )
+    	Task.find( :all, :params => { 'project-id' => self.id, 'completed-at' => nil } )
     end
     
     #def complete_tasks

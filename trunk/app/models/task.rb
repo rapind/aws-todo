@@ -12,7 +12,7 @@ class Task < ActiveResource::Base
     attr_accessor :attributes
     
     def project
-    	Project.find( :first, :params => { :id => self.project_id } )
+    	Project.find( :first, :params => { 'id' => self.project_id } )
     end
     
     protected #---------

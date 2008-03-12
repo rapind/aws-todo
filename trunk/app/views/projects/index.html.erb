@@ -1,18 +1,10 @@
 <h1>Listing projects</h1>
 
 <table>
-  <tr>
-    <th>Name</th>
-  </tr>
-
-<% for project in @projects %>
-  <tr id="<%= dom_id(project) %>">
-    <td><%=h project.name %></td>
-    <td><%= link_to 'Show', project %></td>
-    <td><%= link_to 'Edit', edit_project_path(project) %></td>
-    <td><%= link_to_remote 'Destroy', :url => project_path(project), :confirm => 'Are you sure?', :method => :delete %></td>
-  </tr>
-<% end %>
+	<tr>
+		<th>Name</th>
+	</tr>
+	<%= render :partial => @projects %>
 </table>
 
 <br />
