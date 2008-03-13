@@ -16,8 +16,8 @@ class User < ActiveResource::Base
 		:remember_token => false,
 		:remember_token_expires_at => nil
 	}
-
-	# Sample user	
+    
+	# Sample user
 	# u = User.create(:email => 'rapind@gmail.com', :password => 'test', :full_name => 'Dave Rapin')
 	
 	# AwsSdbProxy settings
