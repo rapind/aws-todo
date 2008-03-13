@@ -1,0 +1,208 @@
+* html .clearfix {
+  height: 1%; }
+
+body {
+  font-family: Stratum2 Medium DISABLED , Helvetica Neue , Helvetica , sans-serif;
+  margin: 0;
+  padding: 0; }
+
+
+* html>body .clearfix {
+  display: inline-block;
+  width: 100%; }
+
+.clearfix:after {
+  content: ".";
+  display: block;
+  height: 0;
+  clear: both;
+  visibility: hidden; }
+
+
+div#container {
+  width: 700px;
+  margin: 0 auto; }
+div#header {
+  position: relative;
+  margin-bottom: 10px; }
+div#content {
+  clear: both; }
+div#footer {
+  clear: both;
+  font-size: 0.8em;
+  text-align: center; }
+
+
+div#menu_wrapper {
+  background-color: #ededee; }
+  div#menu_wrapper ul#menu {
+    padding: 5px 20px;
+    margin: 0 auto;
+    width: 700px;
+    text-align: center; }
+    div#menu_wrapper ul#menu li {
+      list-style-type: none;
+      float: left;
+      display: block;
+      padding: 0 0.5em; }
+
+h1 {
+  background: url(/images/headers/the-online-ceo-black.png) no-repeat;
+  width: 533px;
+  height: 70px;
+  margin: 0 auto; }
+  h1 a {
+    display: none; }
+
+h2 {
+  text-align: left;
+  border-bottom: 1px solid #cccccc;
+  margin: 10px 0;
+  color: #999999;
+  font-weight: normal; }
+  h2.add_a_new_task {
+    display: none; }
+
+.point_totals {
+  font-family: Stratum2 Regular DISABLED , Helvetica Neue , Helvetica , sans-serif;
+  font-size: 0.8em;
+  font-weight: normal;
+  color: #cccccc;
+  padding-left: 0.5em; }
+
+form select {
+  margin-right: 7px; }
+form#task_form_new {
+  background-color: #e6e6e6;
+  padding: 10px; }
+  form#task_form_new .task_name {
+    width: 450px; }
+form .task_name {
+  width: 510px;
+  margin: 0 10px; }
+
+form.point {
+  height: 24px;
+  margin-bottom: 3px;
+  padding: 10px; }
+
+div.point {
+  height: 14px;
+  margin-bottom: 3px;
+  padding: 15px; }
+
+.point1 {
+  background: url(/images/points/1.png) no-repeat; }
+
+.point2 {
+  background: url(/images/points/2.png) no-repeat; }
+
+.point5 {
+  background: url(/images/points/5.png) no-repeat; }
+
+.point10 {
+  background: url(/images/points/10.png) no-repeat; }
+
+div.showtask {
+  overflow: hidden; }
+  div.showtask small {
+    padding-left: 1em; }
+
+div.pagination {
+  margin-top: 10px;
+  margin-bottom: 10px;
+  text-align: left; }
+
+div form {
+  background-color: #e6e6e6;
+  padding: 10px; }
+  div form input {
+    margin-left: 5px;
+    margin-right: 5px; }
+  div form .text_field {
+    width: 10em; }
+div.signup label {
+  display: block;
+  margin-bottom: 1em; }
+  div.signup label input {
+    display: block;
+    margin-top: 5px;
+    margin-left: 0; }
+
+div.feature_note {
+  margin: 10px 0; }
+
+table.features img {
+  border: 1px solid #cccccc; }
+
+
+div.totals {
+  width: 70px;
+  top: 1em;
+  position: absolute;
+  text-align: center; }
+  div.totals#todo_points {
+    left: 630px; }
+  div.totals small {
+    display: block;
+    font-size: 1.1em;
+    font-variant: small-caps;
+    color: #999999; }
+  div.totals span {
+    font-size: 2em;
+    font-weight: bold;
+    line-height: 0.8em; }
+
+
+table {
+  border-collapse: collapse;
+  margin: 0 15px;
+  margin-bottom: 1.5em; }
+  table tr.odd {
+    background-color: white; }
+  table tr.even {
+    background-color: #f0f0f0; }
+  table tr th, table tr td {
+    text-align: left;
+    line-height: 1.5em;
+    vertical-align: top;
+    padding-left: 5px;
+    padding-right: 5px; }
+    table tr th.right, table tr td.right {
+      text-align: right;
+      padding-right: 10px; }
+  table tr th {
+    background-color: #ddddff;
+    border-bottom: 1px solid #bbbbdd;
+    margin-bottom: 3em;
+    font-weight: normal; }
+    table tr th.title {
+      border-bottom: none;
+      font-weight: bold; }
+  table.small {
+    font-size: 0.8em; }
+    table.small th, table.small td {
+      text-align: right; }
+    table.small th.first_column, table.small td.first_column {
+      text-align: left; }
+    table.small td.last_column {
+      text-align: right; }
+
+.float_left {
+  float: left; }
+
+
+div.errorExplanation h2 {
+  color: black;
+  border-bottom: none;
+  font-variant: small-caps; }
+
+div.fieldWithErrors {
+  margin: 0;
+  padding: 0;
+  border: 0; }
+
+
+div.notice, div.warning {
+  background-color: #ffffcc;
+  padding: 1em; }
