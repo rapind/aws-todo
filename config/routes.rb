@@ -6,7 +6,7 @@ ActionController::Routing::Routes.draw do |map|
   map.logout '/logout', :controller => 'session', :action => 'destroy'
   
   # resource mappings
-  map.resources :tasks, :member => { :complete => :post }, :collection => { :completed => :get }
+  map.resources :tasks
   map.resources :users
 
   # root mapping

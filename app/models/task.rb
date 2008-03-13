@@ -5,8 +5,8 @@ class Task < ActiveResource::Base
 	@@defaults = {
 		:id => nil,
 		:user_id => nil,
-		:description => nil,
-		:value => nil,
+		:name => nil,
+		:worth => 1,
 		:complete => false,
 		:completed_at => nil,
 		:created_at => nil,
@@ -26,7 +26,7 @@ class Task < ActiveResource::Base
     protected #---------
     
     #def validate
-    #	errors.add_on_empty %w( user_id, description, value )    	
+    #	errors.add_on_empty %w( user_id, name, value )    	
     #end
     
 end

@@ -1,7 +1,7 @@
 <% form_for task do |f| -%>
 	<%= f.check_box 'complete' %>
-	<%= f.text_field 'description', :class => 'task_name' %>
-	<%= f.select 'value', (1..5).to_a %>
+	<%= f.text_field 'name', :class => 'task_name' %>
+	<%= f.select 'worth', (1..5).to_a %>
 	<img alt="Spinner" class="spinner" id="spinner54180" src="/images/spinner.gif" style="display: none" />
 <% end -%>
 <%= observe_form "edit_task_#{task.id}", :url => "tasks/#{task.id}" %>
