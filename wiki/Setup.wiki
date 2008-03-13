@@ -12,7 +12,3 @@ Instructions on setting up the tutorial environment.
 See: http://www.slideshare.net/martin.rehfeld/amazon-simple-db-07-feb-2008-rug-b/
   # gem install aws-sdb
   # ruby script/plugin install -x http://rug-b.rubyforge.org/svn/aws_sdb_proxy
-
-== Installing restful_authentication ==
-  # ruby script/plugin install -x http://svn.techno-weenie.net/projects/plugins/restful_authentication
-  # script/generate authenticated user sessions --include-activation
