@@ -1,21 +1,13 @@
-<h1>Tasks</h1>
+<h2 class="add_a_new_task">Add a New Task</h2>
 
-<div id="loading" style="display: none">
-	Loading...
-</div>
-
-<h2>Totals: <span id="task_totals"><%= @task_totals %></span></h2>
-
-<table border="1" id="tasks">
-	<tr>
-		<th>Description</th>
-		<th>Value</th>
-		<th>Completed</th>
-		<th></th>
-	</tr>
-	<%= render :partial => @tasks %>
-</table>
-
+<h2>Add New Task</h2>
 <p>
 	<%= render :partial => 'form' %>
 </p>
+
+<p></p>
+<h2>Today</h2>
+<div id="task_list">
+	<%= render :partial => @tasks %>
+</div>
+

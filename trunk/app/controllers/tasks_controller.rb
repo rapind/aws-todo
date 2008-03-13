@@ -100,6 +100,10 @@ class TasksController < ApplicationController
     @task = Task.find(params[:id])
     # We need to use load then save instead of update_attributes with active resource models
     @task.load(params[:task])
+    
+    if @task.complete and @task.completed_at.nil?
+    	@task.completed_at = Time.now
+    end
 
     respond_to do |format|
       if @task.save

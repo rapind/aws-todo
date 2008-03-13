@@ -1,7 +1,8 @@
-<tr id='<%= dom_id(task) %>'>
-	<td><%=h task.description %></td>
-	<td><%= task.value %></td>
-	<td><%= task.completed_at %></td>
-	<td><%= link_to_remote 'Complete', :url => complete_task_path(task), :confirm => 'Are you sure?' %></td>
-	<td><%= link_to_remote 'Destroy', :url => task_path(task), :confirm => 'Are you sure?', :method => :delete %></td>
-</tr>
+<% form_for task do |f| -%>
+	<%= f.check_box 'complete' %>
+	<%= f.text_field 'description', :class => 'task_name' %>
+	<%= f.select 'value', (1..5).to_a %>
+	<img alt="Spinner" class="spinner" id="spinner54180" src="/images/spinner.gif" style="display: none" />
+<% end -%>
+</form>
+<%= observe_form "edit_task_#{task.id}", :url => "tasks/#{task.id}" %>

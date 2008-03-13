@@ -1,8 +1,7 @@
 <% form_remote_tag :url => {:action => 'create'}, :html => {:id => 'task_form'} do -%>
-	<div>Add Task:</div>
 	<label for='task_description'>Description</label>
 	<%= text_field 'task', 'description' %>
 	<label for='task_value'>Value</label>
 	<%= select 'task', 'value', (1..5).to_a %>	
-	<%= submit_tag 'Add New Task' %>	
+	<%= submit_tag 'Create' %>	
 <% end -%>
