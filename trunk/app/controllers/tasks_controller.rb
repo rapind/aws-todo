@@ -4,8 +4,10 @@ class TasksController < ApplicationController
   
   # GET /tasks
   # GET /tasks.xml
-  def index
-    @tasks = current_user.incompleted_tasks
+  def index  	
+    @incomplete_tasks = current_user.incomplete_tasks
+    @complete_tasks = current_user.complete_tasks
+    
     calculate_totals
 
     respond_to do |format|
@@ -14,19 +16,6 @@ class TasksController < ApplicationController
     end
   end
   
-  # GET /tasks
-  # GET /tasks.xml
-  def completed
-    @tasks = current_user.completed_tasks
-    calculate_totals
-
-    respond_to do |format|
-      format.html # completed.html.erb
-      format.xml  { render :xml => @tasks }
-    end
-  end
-  
-
   # GET /tasks/1
   # GET /tasks/1.xml
   def show
@@ -82,7 +71,11 @@ class TasksController < ApplicationController
     @task.load(params[:task])
     
     if @task.complete and @task.completed_at.nil?
+    	@task.complete = 1
     	@task.completed_at = Time.now
+    else
+    	@task.complete = 0
+    	@task.completed_at = nil
     end
 
     respond_to do |format|
