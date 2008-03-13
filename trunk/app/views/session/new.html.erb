@@ -1,28 +1,8 @@
-<h1>Login</h1>
-
-<h3>Returning Users</h3>
-<p>Welcome back! We'll just need your email address and password and we'll load your account back up.</p>
+<h2>Account Login</h2>
+<p>Returning users, please login to view your tasks.</p>
 <% form_tag(session_path) do -%>
-	<!-- TODO - add OpenID Authentication -->
-	<p>
-		Email Address:<br />
-		<%= text_field_tag 'email', nil, :size => 40 %>
-	</p>
-	
-	<p>
-		Password:<br />
-		<%= password_field_tag 'password', nil, :size => 25 %>
-	</p>
-	
-	<p>
-		Remember me:<br />
-		<%= check_box_tag 'remember_me' %>
-	</p>
-	
-	<p>
-		<%= submit_tag 'Log in' %>
-	</p>
-<% end -%>
-
-<h3>First Time?</h3>
-<p>If you don't already have an account the process is dead simple. Just head over <%= link_to "here", new_user_path %> to get started.</p>
+	Email: <%= text_field_tag 'email', nil, :size => 40 %>
+	Password: <%= password_field 'password', nil, :size => 25 %>
+	<%= submit_tag 'Log in' %>
+<% end -%><br />
+<p>New users, <%= link_to "Signup Now", new_user_path %> for free.</p>

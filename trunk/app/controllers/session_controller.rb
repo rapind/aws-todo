@@ -1,13 +1,12 @@
 # This controller handles the login/logout function of the site.  
 class SessionController < ApplicationController
 	
-	def welcome
-		
-	end
-	
 	def new
+		if self.logged_in?
+			redirect_to tasks_path
+		end
 	end
-	
+		
 	def create
 		password_authentication(params[:email], params[:password])
 	end
@@ -33,7 +32,7 @@ class SessionController < ApplicationController
 	
 	def failed_login(message = "Authentication failed.")
 		flash.now[:error] = message
-		render :action => 'new'
+		render :action => 'welcome'
 	end
 	
 	def successful_login

@@ -47,9 +47,7 @@ div#menu_wrapper {
       padding: 0 0.5em; }
 
 h1 {
-  background: url(/images/headers/the-online-ceo-black.png) no-repeat;
-  width: 533px;
-  height: 70px;
+  text-align: left;
   margin: 0 auto; }
   h1 a {
     display: none; }
