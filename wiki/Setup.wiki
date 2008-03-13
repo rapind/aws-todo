@@ -1,7 +1,5 @@
 #labels setup,install
-Setup Your Environment
-
-= Introduction =
+= Setup Your Environment =
 
 Instructions on setting up the aws-todo Rails environment.
 
