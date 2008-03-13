@@ -18,9 +18,20 @@ module ActiveResourceSchema
 	
 	def initialize(attributes = {})
     	
-    	@@defaults.merge!(attributes) unless attributes.empty?
-    	super @@defaults
+    	init_attribs = @@defaults
+		#puts 'Attribs passed: ' + attributes.to_a.join("|")
+		# This is annoying, but we need to remove default values manually by converting the keys
+		# to strings and then checking for a match, because the hash merge function messes it up.
+		for new_key in attributes.keys
+			init_attribs.delete_if {|key, value| key.to_s == new_key.to_s }
+		end
+		init_attribs.merge!(attributes)
+    	#puts 'Merged: ' + init_attribs.to_a.join("|")
+    	
+    	# call the super's init
+    	super init_attribs
     	
     end
+    
     
 end
