@@ -1,4 +1,7 @@
 class UsersController < ApplicationController
+  
+  before_filter :login_required, :except => [:new, :create]
+  
   # GET /users
   # GET /users.xml
   def index
@@ -40,12 +43,14 @@ class UsersController < ApplicationController
   # POST /users
   # POST /users.xml
   def create
+  	cookies.delete :auth_token
     @user = User.new(params[:user])
-
+    
     respond_to do |format|
       if @user.save
-        flash[:notice] = 'user was successfully created.'
-        format.html { redirect_to(@user) }
+        flash[:notice] = "Thanks for signing up!"
+        self.current_user = @user
+        format.html { redirect_back_or_default('/') }
         format.xml  { render :xml => @user, :status => :created, :location => @user }
       else
         format.html { render :action => "new" }
@@ -63,7 +68,7 @@ class UsersController < ApplicationController
 
     respond_to do |format|
       if @user.save
-        flash[:notice] = 'user was successfully updated.'
+        flash[:notice] = 'User was successfully updated.'
         format.html { redirect_to(@user) }
         format.xml  { head :ok }
       else

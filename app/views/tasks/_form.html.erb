@@ -3,6 +3,6 @@
 	<label for='task_description'>Description</label>
 	<%= text_field 'task', 'description' %>
 	<label for='task_value'>Value</label>
-	<%= text_field 'task', 'value' %>	
+	<%= select 'task', 'value', (1..5).to_a %>	
 	<%= submit_tag 'Add New Task' %>	
 <% end -%>

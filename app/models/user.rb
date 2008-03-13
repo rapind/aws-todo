@@ -35,12 +35,15 @@ class User < ActiveResource::Base
 	end
 	
 	def tasks
+		Task.find( :all, :params => { 'user-id' => self.id, 'completed-at' => nil } )
+	end
+	
+	def incompleted_tasks
 		Task.find( :all, :params => { 'user-id' => self.id } )
 	end
 	
-	def task_totals
-		tasks = tasks
-		tasks.inject(0){ |sum, item| sum + item.value }
+	def completed_tasks
+		Task.find( :all, :params => { 'user-id' => self.id } )
 	end
   
 	# Activates the user in the database.
@@ -103,7 +106,7 @@ class User < ActiveResource::Base
 	def forget_me
 		self.remember_token_expires_at = nil
 		self.remember_token            = nil
-		save(false)
+		save
 	end
 
 	protected #------------------

@@ -1,8 +1,7 @@
-<tr id="<%= dom_id(task) %>">
+<tr id='<%= dom_id(task) %>'>
 	<td><%=h task.description %></td>
 	<td><%= task.value %></td>
 	<td><%= task.completed_at %></td>
-	<td><%= link_to 'Show', task %></td>
-	<td><%= link_to 'Edit', edit_task_path(task) %></td>
+	<td><%= link_to_remote 'Complete', :url => complete_task_path(task), :confirm => 'Are you sure?' %></td>
 	<td><%= link_to_remote 'Destroy', :url => task_path(task), :confirm => 'Are you sure?', :method => :delete %></td>
 </tr>

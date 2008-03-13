@@ -1,4 +1,4 @@
-<h1><Tasks><%= @project.name %></h1>
+<h1>Tasks</h1>
 
 <div id="loading" style="display: none">
 	Loading...
@@ -6,8 +6,16 @@
 
 <h2>Totals: <span id="task_totals"><%= @task_totals %></span></h2>
 
-<table>
+<table border="1" id="tasks">
+	<tr>
+		<th>Description</th>
+		<th>Value</th>
+		<th>Completed</th>
+		<th></th>
+	</tr>
 	<%= render :partial => @tasks %>
 </table>
 
-<%= render :partial => 'form' %>
+<p>
+	<%= render :partial => 'form' %>
+</p>
