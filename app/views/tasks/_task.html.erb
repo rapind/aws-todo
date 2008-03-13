@@ -4,5 +4,4 @@
 	<%= f.select 'value', (1..5).to_a %>
 	<img alt="Spinner" class="spinner" id="spinner54180" src="/images/spinner.gif" style="display: none" />
 <% end -%>
-</form>
 <%= observe_form "edit_task_#{task.id}", :url => "tasks/#{task.id}" %>
