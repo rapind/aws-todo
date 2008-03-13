@@ -65,30 +65,10 @@ class TasksController < ApplicationController
       	calculate_totals
         #flash[:notice] = 'Task was successfully created.'
         format.html { redirect_to(tasks_path) }
-        format.js # run the update.js.rjs template
+        format.js # run the create.js.rjs template
         format.xml  { render :xml => @task, :status => :created, :location => @task }
       else
         format.html { render :action => "index" }
-        format.xml  { render :xml => @task.errors, :status => :unprocessable_entity }
-      end
-    end
-  end
-
-  # POST /tasks/1
-  # POST /tasks/1.xml
-  def complete
-    @task = Task.find(params[:id])
-    @task.completed_at = Time.now
-
-    respond_to do |format|
-      if @task.save
-      	calculate_totals
-        #flash[:notice] = 'Task was successfully updated.'
-        format.html { redirect_to(tasks_path) }
-        format.js # run the complete.js.rjs template
-        format.xml  { head :ok }
-      else
-        format.html { render :action => "edit" }
         format.xml  { render :xml => @task.errors, :status => :unprocessable_entity }
       end
     end
