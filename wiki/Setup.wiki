@@ -3,7 +3,7 @@ Setup Your Environment
 
 = Introduction =
 
-Instructions on setting up the tutorial environment.
+Instructions on setting up the aws-todo Rails environment.
 
 
 = Details =
@@ -13,7 +13,7 @@ Instructions on setting up the tutorial environment.
   # Sign up for the SimpleDB service (beta)
   # Sign up for the EC2 service
 
-== Installing SimplDB ==
+== Install SimpleDB ==
 See: http://developer.amazonwebservices.com/connect/entry.jspa?externalID=1242
   # gem install aws-sdb
   # Enter your amazon access and secret keys in 'config/aws_adb_proxt.xml'
