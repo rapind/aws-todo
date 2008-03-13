@@ -8,7 +8,20 @@ Instructions on setting up the tutorial environment.
 
 = Details =
 
+== Sign Up for an Amazon Web Services Account ==
+  # http://aws.amazon.com/
+  # Sign up for the SimpleDB service (beta)
+  # Sign up for the EC2 service
+
 == Installing SimplDB ==
-See: http://www.slideshare.net/martin.rehfeld/amazon-simple-db-07-feb-2008-rug-b/
+See: http://developer.amazonwebservices.com/connect/entry.jspa?externalID=1242
   # gem install aws-sdb
   # ruby script/plugin install -x http://rug-b.rubyforge.org/svn/aws_sdb_proxy
+  # Enter your amazon access and secret keys in 'config/aws_adb_proxt.xml'
+  # Create the SimpleDB domain "rake aws_sdb:create_domain DOMAIN=aws_todo"
+  # Start the SimpleDB proxy server "rake aws_sdb:start_proxy_in_foreground"
+
+Now you should be able to run the examples by just running the server (no other database setup).
+
+You can view the users and tasks from SimpleDB by hitting the proxied resources directly. I.e. http://localhost:8888/aws_todo/users.xml and http://localhost:8888/aws_todo/tasks.xml
+
