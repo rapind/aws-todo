@@ -35,15 +35,15 @@ class User < ActiveResource::Base
 	end
 	
 	def tasks
-		Task.find( :all, :params => { 'user-id' => self.id, 'completed-at' => nil } )
-	end
-	
-	def incompleted_tasks
 		Task.find( :all, :params => { 'user-id' => self.id } )
 	end
 	
-	def completed_tasks
-		Task.find( :all, :params => { 'user-id' => self.id } )
+	def incomplete_tasks
+		Task.find( :all, :params => { 'user-id' => self.id, 'complete' => 0 } )
+	end
+	
+	def complete_tasks
+		Task.find( :all, :params => { 'user-id' => self.id, 'complete' => 1 } )
 	end
   
 	# Activates the user in the database.

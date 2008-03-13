@@ -1,7 +1,9 @@
+<span id="<%= dom_id(task) %>">
 <% form_for task do |f| -%>
-	<%= f.check_box 'complete' %>
+	<%= f.check_box 'complete' unless task.complete == '1' %>
 	<%= f.text_field 'name', :class => 'task_name' %>
 	<%= f.select 'worth', (1..5).to_a %>
 	<img alt="Spinner" class="spinner" id="spinner54180" src="/images/spinner.gif" style="display: none" />
 <% end -%>
+</span>
 <%= observe_form "edit_task_#{task.id}", :url => "tasks/#{task.id}" %>

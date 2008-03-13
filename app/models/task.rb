@@ -7,7 +7,7 @@ class Task < ActiveResource::Base
 		:user_id => nil,
 		:name => nil,
 		:worth => 1,
-		:complete => false,
+		:complete => 0,
 		:completed_at => nil,
 		:created_at => nil,
 		:updated_at => nil

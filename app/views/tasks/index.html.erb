@@ -1,11 +1,17 @@
-<h2>Add New Task</h2>
+<h2>Create New Task</h2>
 <p>
 	<%= render :partial => 'form' %>
 </p>
 
-<p></p>
-<h2>Tasks</h2>
-<div id="task_list">
-	<%= render :partial => @tasks %>
+<p>&nbsp;</p>
+<h2>Outstanding</h2>
+<div id="incomplete_task_list">
+	<%= render :partial => @incomplete_tasks %>
+</div>
+
+<p>&nbsp;</p>
+<h2>Completed</h2>
+<div id="complete_task_list">
+	<%= render :partial => @complete_tasks %>
 </div>
 

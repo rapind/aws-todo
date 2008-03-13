@@ -1,4 +1,4 @@
-page.insert_html :bottom, 'task_list', :partial => 'task', :locals => {:task => @task}
+page.insert_html :bottom, 'incomplete_task_list', :partial => 'task', :locals => {:task => @task}
 
 page['task_form'].reset
 
