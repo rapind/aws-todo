@@ -3,9 +3,6 @@
 
 Instructions on setting up the aws-todo Rails environment.
 
-
-= Details =
-
 == Sign Up for an Amazon Web Services Account ==
   # http://aws.amazon.com/
   # Sign up for the SimpleDB service (beta)
