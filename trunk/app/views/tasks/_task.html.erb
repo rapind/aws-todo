@@ -5,7 +5,7 @@
 	</form>
 	<% else -%>	
 		<% form_for task do |f| -%>
-			<%= f.check_box 'complete' unless task.complete == '1' %>
+			<%= f.check_box 'complete', :html_options => {:alt => 'Mark as done'} %>
 			<%= f.text_field 'name', :class => 'task_name' %>
 			<%= f.select 'worth', (1..5).to_a %>
 			<img alt="Spinner" class="spinner" id="spinner54180" src="/images/spinner.gif" style="display: none" />
