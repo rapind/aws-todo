@@ -1,5 +1,5 @@
-page.insert_html :bottom, 'tasks', :partial => 'task', :locals => {:task => @task}
+page.insert_html :bottom, 'task_list', :partial => 'task', :locals => {:task => @task}
 
 page['task_form'].reset
 
-page << render(:partial => 'totals')
+#page << render(:partial => 'totals')
