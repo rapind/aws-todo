@@ -8,7 +8,6 @@
 			<%= f.check_box 'complete', :html_options => {:alt => 'Mark as done'} %>
 			<%= f.text_field 'name', :class => 'task_name' %>
 			<%= f.select 'worth', (1..5).to_a %>
-			<img alt="Spinner" class="spinner" id="spinner54180" src="/images/spinner.gif" style="display: none" />
 		<% end -%>
 		<%= observe_form "edit_task_#{task.id}", :url => "tasks/#{task.id}" %>
 	<% end -%>
