@@ -9,19 +9,13 @@
   <%= javascript_include_tag 'prototype', 'effects', 'lightbox', 'lowpro', 'application' %>
 </head>
 <body>
-	<div id='menu_wrapper'>
-      <ul class='clearfix' id='menu'>
-      	<% if logged_in? -%>
-          <li>
-            <a href="/logout">Logout</a>
-          </li>
-        <% end -%>
-      </ul>
-    </div>
-    <div id='container'>
-      <div id='detail'>
-    	<%= yield  %>
-      </div>
-    </div>
+	<div id="container">
+		<div id="header"><%= render :partial => 'shared/header' %></div>
+		<div id="wrapper">
+			<%= show_flash -%>
+			<div id="content"><%= yield  %></div>
+		</div>
+		<div id="footer"><%= render :partial => 'shared/footer' %></div>
+	</div>
 </body>
 </html>

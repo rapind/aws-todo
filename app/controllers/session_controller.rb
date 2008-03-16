@@ -2,6 +2,7 @@
 class SessionController < ApplicationController
 	
 	def new
+		flash[:notice] = "Notice"
 		if self.logged_in?
 			redirect_to tasks_path
 		end
@@ -32,7 +33,7 @@ class SessionController < ApplicationController
 	
 	def failed_login(message = "Authentication failed.")
 		flash.now[:error] = message
-		render :action => 'welcome'
+		render :action => 'new'
 	end
 	
 	def successful_login

@@ -1,115 +1,89 @@
 * html .clearfix {
-  height: 1%; }
+  height: 1%;
+}
 
 body {
   font-family: Stratum2 Medium DISABLED , Helvetica Neue , Helvetica , sans-serif;
   margin: 0;
-  padding: 0; }
+  padding: 0;
+}
 
 
 * html>body .clearfix {
   display: inline-block;
-  width: 100%; }
+  width: 100%;
+}
 
 .clearfix:after {
   content: ".";
   display: block;
   height: 0;
   clear: both;
-  visibility: hidden; }
+  visibility: hidden;
+}
 
 
 div#container {
   width: 700px;
-  margin: 0 auto; }
+  margin: 0 auto;
+}
+  
 div#header {
   position: relative;
-  margin-bottom: 10px; }
+  width: 700px;
+  text-align: center;
+  padding: 5px 20px;
+  margin-bottom: 10px;
+}
+  
 div#content {
-  clear: both; }
+  clear: both;
+}
+  
 div#footer {
   clear: both;
   font-size: 0.8em;
-  text-align: center; }
-
-
-div#menu_wrapper {
-  background-color: #ededee; }
-  div#menu_wrapper ul#menu {
-    padding: 5px 20px;
-    margin: 0 auto;
-    width: 700px;
-    text-align: center; }
-    div#menu_wrapper ul#menu li {
-      list-style-type: none;
-      float: left;
-      display: block;
-      padding: 0 0.5em; }
+  margin-top: 30px;
+}
 
 h1 {
-  text-align: left;
-  margin: 0 auto; }
-  h1 a {
-    display: none; }
+  text-align: center;
+  margin: 10px 0;
+  color: #999999;
+  font-weight: bold;
+}
+
+h1 a {
+  display: none;
+}
 
 h2 {
   text-align: left;
   border-bottom: 1px solid #cccccc;
   margin: 10px 0;
   color: #999999;
-  font-weight: normal; }
-  h2.add_a_new_task {
-    display: none; }
+  font-weight: normal;
+}
 
 .point_totals {
   font-family: Stratum2 Regular DISABLED , Helvetica Neue , Helvetica , sans-serif;
   font-size: 0.8em;
   font-weight: normal;
   color: #cccccc;
-  padding-left: 0.5em; }
+  padding-left: 0.5em;
+}
 
-form select {
-  margin-right: 7px; }
-form#task_form_new {
-  background-color: #e6e6e6;
-  padding: 10px; }
-  form#task_form_new .task_name {
-    width: 450px; }
+
 form .task_name {
   width: 510px;
-  margin: 0 10px; }
-
-form.point {
-  height: 24px;
-  margin-bottom: 3px;
-  padding: 10px; }
-
-div.point {
-  height: 14px;
-  margin-bottom: 3px;
-  padding: 15px; }
-
-.point1 {
-  background: url(/images/points/1.png) no-repeat; }
-
-.point2 {
-  background: url(/images/points/2.png) no-repeat; }
-
-.point5 {
-  background: url(/images/points/5.png) no-repeat; }
-
-.point10 {
-  background: url(/images/points/10.png) no-repeat; }
-
-div.showtask {
-  overflow: hidden; }
-  div.showtask small {
-    padding-left: 1em; }
+  margin: 0 10px;
+}
 
 div.pagination {
   margin-top: 10px;
   margin-bottom: 10px;
-  text-align: left; }
+  text-align: left;
+}
 
 div form {
   background-color: #e6e6e6;
@@ -119,20 +93,6 @@ div form {
     margin-right: 5px; }
   div form .text_field {
     width: 10em; }
-div.signup label {
-  display: block;
-  margin-bottom: 1em; }
-  div.signup label input {
-    display: block;
-    margin-top: 5px;
-    margin-left: 0; }
-
-div.feature_note {
-  margin: 10px 0; }
-
-table.features img {
-  border: 1px solid #cccccc; }
-
 
 div.totals {
   width: 70px;
@@ -189,18 +149,7 @@ table {
 .float_left {
   float: left; }
 
-
-div.errorExplanation h2 {
-  color: black;
-  border-bottom: none;
-  font-variant: small-caps; }
-
-div.fieldWithErrors {
-  margin: 0;
-  padding: 0;
-  border: 0; }
-
-
-div.notice, div.warning {
+div.flash_banner {
   background-color: #ffffcc;
-  padding: 1em; }
+  padding: 1em;
+}
