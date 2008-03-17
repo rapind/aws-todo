@@ -1,5 +1,23 @@
 require 'digest/sha1'
 class User < ActiveResource::Base
+	
+	#include Doodle::Helper
+  	#include Doodle::Factory
+  	
+  	#has :id, :kind => Integer
+  	#has :email, :kind => String, :default => nil
+  	#has :full_name, :kind => String, :default => nil
+  	#has :password, :kind => String, :default => nil
+  	#has :salt, :kind => String, :default => nil
+  	#has :crypted_password, :kind => String, :default => nil
+  	#has :activated, :kind => Boolean, :default => false
+  	#has :activation_code, :kind => String, :default => nil
+  	#has :activated_at, :kind => Date, :default => nil
+  	#has :remember_token, :kind => Boolean, :default => false
+  	#has :remember_token_expires_at, :default => Time.now
+  	#has :created_at, :default => Time.now
+  	#has :updated_at, :default => Time.now
+  	
 	# Specify the default schema attributes for the class. This ensures that these attributes are available
 	# in view forms etc.
 	include ActiveResourceSchema
@@ -37,15 +55,7 @@ class User < ActiveResource::Base
 	def tasks
 		Task.find( :all, :params => { 'user-id' => self.id } )
 	end
-	
-	def incomplete_tasks
-		Task.find( :all, :params => { 'user-id' => self.id, 'complete' => 0 } )
-	end
-	
-	def complete_tasks
-		Task.find( :all, :params => { 'user-id' => self.id, 'complete' => 1 } )
-	end
-  
+		  
 	# Activates the user in the database.
 	def activate
 		@activated = true

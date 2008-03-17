@@ -1,5 +1,4 @@
-<% form_remote_tag :url => {:action => 'create'}, :html => {:id => 'task_form'} do -%>
-	<%= text_field 'task', 'name', :class => 'task_name' %>
-	<%= select 'task', 'worth', (1..5).to_a %>
-	<%= submit_tag 'Create' %>
-<% end -%>
+<%= check_box_tag 'task[completed]', '1', completed, :disabled => completed %>
+<%= form.text_field :name, :class => 'task_name', :disabled => completed %>
+<%= form.select :worth, [1,2,5,10], {}, {:disabled => completed} %>
+<%= submit_tag button_name %>

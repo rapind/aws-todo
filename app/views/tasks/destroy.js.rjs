@@ -1,3 +1,0 @@
-page.remove dom_id(@task)
-
-#page << render(:partial => 'totals')

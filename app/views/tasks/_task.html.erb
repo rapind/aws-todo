@@ -1,14 +1,8 @@
 <span id="<%= dom_id(task) %>">
-	<% if task.complete == '1' -%>
-	<form>
-		<%= h task.name %> &nbsp; <%= task.worth %> &nbsp; <%= task.completed_at %> &nbsp; <%= link_to_remote( 'Remove', :url => task_path(task), :confirm => 'Are you sure?', :method => :delete ) %>
-	</form>
-	<% else -%>	
-		<% form_for task do |f| -%>
-			<%= f.check_box 'complete', :html_options => {:alt => 'Mark as done'} %>
-			<%= f.text_field 'name', :class => 'task_name' %>
-			<%= f.select 'worth', (1..5).to_a %>
-		<% end -%>
-		<%= observe_form "edit_task_#{task.id}", :url => "tasks/#{task.id}" %>
-	<% end -%>
+    <% form_for task, :html => { :class => "edit" } do |form| %>
+    	<%= check_box_tag 'task[completed]', '1', task.completed? %>
+		<%= form.text_field :name, :class => 'task_name' %>
+		<%= form.select :worth, [1,2,5,10] %>
+		<%= submit_tag 'Update' %>
+  	<% end %>
 </span>

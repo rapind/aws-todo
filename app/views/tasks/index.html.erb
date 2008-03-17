@@ -1,6 +1,11 @@
 <h2>Create New Task</h2>
 <p>
-	<%= render :partial => 'form' %>
+  	<% form_for :task, Task.new, tasks_path, :html => { :class => 'new' } do |form| -%>
+  		<%= check_box_tag 'task[completed]', '1' %>
+		<%= form.text_field :name, :class => 'task_name' %>
+		<%= form.select :worth, [1,2,5,10] %>
+		<%= submit_tag 'Create' %>
+	<% end -%>
 </p>
 
 <p>&nbsp;</p>
@@ -10,8 +15,10 @@
 </div>
 
 <p>&nbsp;</p>
-<h2>Completed</h2>
-<div id="complete_task_list">
-	<%= render :partial => @complete_tasks %>
+<h2>Recently completed</h2>
+<div id="completed_task_list">
+	<%= render :partial => @completed_tasks %>
 </div>
 
+<p>&nbsp;</p>
+<p><%= link_to 'Destroy Completed', destroy_completed_tasks_path, :class => 'destroy' %>
