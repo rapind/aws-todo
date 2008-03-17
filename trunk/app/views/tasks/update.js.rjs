@@ -1,4 +1,0 @@
-if @task.complete == 1
-	page.remove dom_id(@task)
-	page.insert_html :bottom, "complete_task_list", :partial => 'task', :locals => {:task => @task}
-end

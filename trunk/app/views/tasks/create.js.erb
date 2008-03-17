@@ -1,0 +1,5 @@
+<% if @task.completed? -%>
+	$("#completed_task_list").append(<%= partial 'task', :object => @task %>);
+<% else -%>
+	$("#incomplete_task_list").append(<%= partial 'task', :object => @task %>);
+<% end -%>

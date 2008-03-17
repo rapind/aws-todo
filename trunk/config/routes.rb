@@ -6,7 +6,7 @@ ActionController::Routing::Routes.draw do |map|
   map.logout '/logout', :controller => 'session', :action => 'destroy'
   
   # resource mappings
-  map.resources :tasks
+  map.resources :tasks, :collection => {:destroy_completed => :delete}
   map.resources :users
 
   # root mapping
