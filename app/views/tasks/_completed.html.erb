@@ -1,0 +1,8 @@
+<span id="<%= dom_id(completed) %>">
+	<form>
+		<%= check_box_tag 'task[completed]', '1', true, {:disabled => true} %>
+		<input value="<%= completed.name %>" type="text" class="task_name" disabled="true" />
+		<%= select completed, :worth, [1,2,5,10], {}, {:disabled => true} %>
+		<b>&nbsp;<%= link_to 'Destroy', task_path(completed), :class => 'destroy' %></b>
+	</form>
+</span>

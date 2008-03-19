@@ -18,16 +18,18 @@ function render_edit(task_id, list_id) {
 			// append the html
             $(list_id).append(data);
             
-            // bind the new form to the jquery event tree
+            // rebind the forms to the jquery event tree
+            // TODO - switch this to event bubbling for better performance on long lists.
       		bindEditForms();
+      		bindDestroyLinks();
         }
-      });      
+      });
 }
 </script>
 
 <h2>Create New Task</h2>
 <p>
-  	<% form_for :task, Task.new, tasks_path, :html => { :class => 'new' } do |form| -%>
+  	<% form_for Task.new, :html => { :class => 'new' } do |form| -%>
   		<%= check_box_tag 'task[completed]', '1' %>
 		<%= form.text_field :name, :class => 'task_name' %>
 		<%= form.select :worth, [1,2,5,10] %>
@@ -38,15 +40,14 @@ function render_edit(task_id, list_id) {
 <p>&nbsp;</p>
 <h2>Outstanding</h2>
 <div id="incomplete_task_list">
-	<%= render :partial => @incomplete_tasks %>
+	<%= render :partial => 'edit', :collection => @incomplete_tasks %>
 </div>
 
 <p>&nbsp;</p>
 <h2>Recently completed</h2>
 <div id="completed_task_list">
-	<%= render :partial => @completed_tasks %>
+	<%= render :partial => 'completed', :collection => @completed_tasks %>
 </div>
 
 <p>&nbsp;</p>
-<p><%= link_to 'Destroy Completed', destroy_completed_tasks_path, :class => 'destroy' %>
-
+<p><b><%= link_to 'Destroy All Completed Tasks', destroy_completed_tasks_path, :class => 'destroy' %></b></p>
