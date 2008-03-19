@@ -10,17 +10,7 @@ function bindEditForms() {
   });
 }
 
-$(function() {
-  
-  // hook for ajax create forms
-  $("form.new").ajaxForm({
-    dataType: 'script',
-    beforeSend: function(xhr) {xhr.setRequestHeader("Accept", "text/javascript");},
-    clearForm: true
-  });
-  
-  bindEditForms();
-  
+function bindDestroyLinks() {
   // hook for destroy links
   $("a.destroy").click( function() {
       $.ajax({
@@ -35,5 +25,20 @@ $(function() {
       });
       return false;
   });
+}
+
+
+$(function() {
+  
+  // hook for ajax create forms
+  $("form.new").ajaxForm({
+    dataType: 'script',
+    beforeSend: function(xhr) {xhr.setRequestHeader("Accept", "text/javascript");},
+    clearForm: true
+  });
+  
+  bindEditForms();
+  
+  bindDestroyLinks();  
   
 });
