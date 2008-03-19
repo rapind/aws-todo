@@ -1,3 +1,30 @@
+<script>
+// jquery is very cool...
+// This method is called after a new task is created or an existing task is marked as completed (or reversed to incomplete) via AJAX.
+// This inserts the the new task form to the appropriate div (specified as list_id) by calling the edit page, and removing the old form on an update, then rebinds the jquery events (so further updates against the new form can be hooked).
+function render_edit(task_id, list_id) {
+	// add the new task edit form
+	$.ajax({
+        url: '/tasks/' + task_id + '/edit',
+        dataType: "html",
+        beforeSend: function(xhr) {xhr.setRequestHeader("Accept", "text/html");},
+        success: function(data) {
+        	// check to see if the task already exists in the dom, and remove it if it does.
+			var obj = $('#task_' + task_id)
+			if (obj) {
+				obj.remove();
+			}
+			
+			// append the html
+            $(list_id).append(data);
+            
+            // bind the new form to the jquery event tree
+      		bindEditForms();
+        }
+      });      
+}
+</script>
+
 <h2>Create New Task</h2>
 <p>
   	<% form_for :task, Task.new, tasks_path, :html => { :class => 'new' } do |form| -%>
@@ -22,3 +49,4 @@
 
 <p>&nbsp;</p>
 <p><%= link_to 'Destroy Completed', destroy_completed_tasks_path, :class => 'destroy' %>
+

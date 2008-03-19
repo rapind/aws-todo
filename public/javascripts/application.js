@@ -1,22 +1,27 @@
 // helper functions for Ajaxifying standard links and forms, and evaluating returned Javascript
-$(function() {
-  
-  // ajax create forms
-  $("form.new").ajaxForm({
-    dataType: 'script',
-    beforeSend: function(xhr) {xhr.setRequestHeader("Accept", "text/javascript");},
-    clearForm: true
-  });
-  
-  // ajax update forms
+
+function bindEditForms() {
+  // hook for ajax update forms
   $("form.edit").ajaxForm({
   	type: "POST",
     data: {_method: "put"},
     dataType: 'script',
     beforeSend: function(xhr) {xhr.setRequestHeader("Accept", "text/javascript");}
   });
+}
+
+$(function() {
   
-  // destroy links
+  // hook for ajax create forms
+  $("form.new").ajaxForm({
+    dataType: 'script',
+    beforeSend: function(xhr) {xhr.setRequestHeader("Accept", "text/javascript");},
+    clearForm: true
+  });
+  
+  bindEditForms();
+  
+  // hook for destroy links
   $("a.destroy").click( function() {
       $.ajax({
           type: "POST",
