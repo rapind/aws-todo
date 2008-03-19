@@ -1,0 +1,8 @@
+<span id="<%= dom_id(edit) %>">
+    <% form_for edit, :html => { :class => "edit" } do |form| %>
+    	<%= check_box_tag 'task[completed]', '1', edit.completed? %>
+		<%= form.text_field :name, :class => 'task_name' %>
+		<%= form.select :worth, [1,2,5,10] %>
+		<%= submit_tag 'Update' %>
+  	<% end %>
+</span>

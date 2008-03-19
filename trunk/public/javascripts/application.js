@@ -2,11 +2,11 @@
 
 function bindEditForms() {
   // hook for ajax update forms
-  $("form.edit").ajaxForm({
-  	type: "POST",
-    data: {_method: "put"},
+  $('form.edit').ajaxForm({
+  	type: 'POST',
+    data: {_method: 'put'},
     dataType: 'script',
-    beforeSend: function(xhr) {xhr.setRequestHeader("Accept", "text/javascript");}
+    beforeSend: function(xhr) {xhr.setRequestHeader('Accept', 'text/javascript');}
   });
 }
 
@@ -38,6 +38,8 @@ $(function() {
   });
   
   bindEditForms();
+  
+  bindCompletedForms();
   
   bindDestroyLinks();  
   

@@ -37,8 +37,14 @@ class TasksController < ApplicationController
   # GET /tasks/1/edit
   def edit
     @task = Task.find(params[:id])
+    if @task.complete?
+    	partial = 'edit'
+    else
+    	partial = 'completed'
+    end
+    
     respond_to do |format|
-    	format.html { render :partial => 'task', :object => @task if request.xhr? }
+    	format.html { render :partial => partial, :object => @task }
     end
   end
 
@@ -92,7 +98,6 @@ class TasksController < ApplicationController
   # DELETE /tasks/1
   # DELETE /tasks/1.xml
   def destroy
-  	logger.info 'Destroy called.'
     @task = Task.find(params[:id])
     @task.destroy
     #calculate_totals
