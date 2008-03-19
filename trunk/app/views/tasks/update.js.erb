@@ -1,4 +1,3 @@
-<% if @task.completed? %>
-	$(<%= selector @task %>).remove();
-	$("#completed_task_list").append(<%= partial 'task', :object => @task %>);
-<% end %>
+<% if @task.completed? -%>
+	render_edit('<%= @task.id %>', '#completed_task_list');
+<% end -%>

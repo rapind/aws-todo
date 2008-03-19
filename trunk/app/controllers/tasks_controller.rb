@@ -37,6 +37,9 @@ class TasksController < ApplicationController
   # GET /tasks/1/edit
   def edit
     @task = Task.find(params[:id])
+    respond_to do |format|
+    	format.html { render :partial => 'task', :object => @task if request.xhr? }
+    end
   end
 
   # POST /tasks
