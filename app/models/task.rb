@@ -12,6 +12,8 @@ class Task < ActiveResource::Base
 		:updated_at => nil
 	}
 	
+	#validates_presence_of :name, :worth
+	
 	# AwsSdbProxy settings
 	self.site = "http://localhost:8888" # AwsSdbProxy host + port
     self.prefix = "/aws_todo/" # use your SimpleDB domain enclosed in /s
