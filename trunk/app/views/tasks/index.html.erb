@@ -29,7 +29,7 @@ function render_edit(task_id, list_id) {
 
 <h2>Create New Task</h2>
 <p>
-  	<% form_for Task.new, :html => { :class => 'new' } do |form| -%>
+  	<% form_for :task, Task.new, :html => { :class => 'new' } do |form| -%>
   		<%= check_box_tag 'task[completed]', '1' %>
 		<%= form.text_field :name, :class => 'task_name' %>
 		<%= form.select :worth, [1,2,5,10] %>
