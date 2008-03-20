@@ -3,6 +3,7 @@
 		<%= check_box_tag 'task[completed]', '1', true, {:disabled => true} %>
 		<input value="<%= completed.name %>" type="text" class="task_name" disabled="true" />
 		<%= select completed, :worth, [1,2,5,10], {}, {:disabled => true} %>
-		<b>&nbsp;<%= link_to 'Destroy', task_path(completed), :class => 'destroy' %></b>
+		&nbsp;<%= link_to image_tag('icons/tag_blue_delete.png', :alt => 'Remove Task', :border => 0), task_path(completed), :class => 'destroy' %>
+		<%= image_tag('icons/spinner.gif', :style => 'display: none', :id => "spinner_#{completed.id}") %>
 	</form>
 </span>
