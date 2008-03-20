@@ -3,6 +3,7 @@
     	<%= check_box_tag 'task[completed]', '1', edit.completed? %>
 		<%= form.text_field :name, :class => 'task_name' %>
 		<%= form.select :worth, [1,2,5,10] %>
-		<%= submit_tag 'Update' %>
+		&nbsp;<%= image_submit_tag 'icons/tag_blue_edit.png', :alt => 'Update Task' %>
+		<%= image_tag('icons/spinner.gif', :style => 'display: none', :id => "spinner_#{edit.id}") %>
   	<% end %>
 </span>

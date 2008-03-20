@@ -33,7 +33,8 @@ function render_edit(task_id, list_id) {
   		<%= check_box_tag 'task[completed]', '1' %>
 		<%= form.text_field :name, :class => 'task_name' %>
 		<%= form.select :worth, [1,2,5,10] %>
-		<%= submit_tag 'Create' %>
+		&nbsp;<%= image_submit_tag 'icons/tag_blue_add.png' %>
+		<%= image_tag('icons/spinner.gif', :style => 'display: none', :id => "spinner_create") %>
 	<% end -%>
 </p>
 
