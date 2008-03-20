@@ -19,7 +19,7 @@ function bindDestroyLinks() {
           url: this.href,
           dataType: "script",
           beforeSend: function(xhr) {
-            confirm('are you sure?');
+            //confirm('are you sure?');
             xhr.setRequestHeader("Accept", "text/javascript");
             }
       });
@@ -38,9 +38,7 @@ $(function() {
   });
   
   bindEditForms();
-  
-  bindCompletedForms();
-  
+    
   bindDestroyLinks();  
   
 });

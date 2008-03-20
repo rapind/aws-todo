@@ -37,11 +37,13 @@ class TasksController < ApplicationController
   # GET /tasks/1/edit
   def edit
     @task = Task.find(params[:id])
-    if @task.complete?
-    	partial = 'edit'
-    else
+    if @task.completed?
     	partial = 'completed'
+    else
+    	partial = 'edit'
     end
+	logger.info "Completed? #{@task.completed?}"
+    logger.info "Using partial: #{partial}"
     
     respond_to do |format|
     	format.html { render :partial => partial, :object => @task }
@@ -103,9 +105,7 @@ class TasksController < ApplicationController
     #calculate_totals
 
     respond_to do |format|
-      #flash[:notice] = 'Task was successfully removed.'
-      format.js # run the destroy.js.erb template
-      format.xml  { head :ok }
+      format.js # run the destroy_completed.js.erb template
     end
   end
   
